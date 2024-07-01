@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO facebook/fbthrift
     REF "v${VERSION}"
-    SHA512 5c392089c3a59e320a3d2940ffb58da629d5587b0399c26eb0cb637ee5fa9e4f36fa8276e2e0e7d545c8b82c334935cf377da705fba39e0c71e7d543bc0aa916
+    SHA512 560584e1740d5b0fdb637ec7c455c4b340bae1427a15af9da7a084b889305b2a66f08afd67d9ab0ec4007ae3311f1f42129feb71cabe586bd7ab9c4c993fc01b
     HEAD_REF main
     PATCHES 
         fix-glog.patch
@@ -69,7 +69,7 @@ if(EXISTS "${CURRENT_PACKAGES_DIR}/share/fbthrift/FBThriftConfig.cmake")
 endif()
 
 # Only used internally and removed in master
-vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/share/fbthrift/FBThriftTargets.cmake" "LOCATION_HH=\\\"${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-rel/thrift/compiler/location.hh\\\"" "")
+vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/share/fbthrift/FBThriftTargets.cmake" "LOCATION_HH=\\\"${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-rel/thrift/compiler/location.hh\\\"" "" IGNORE_UNCHANGED)
 
 # Handle copyright
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
